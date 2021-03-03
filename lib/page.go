@@ -14,6 +14,7 @@ import (
 	"sort"
 	"strings"
 	"time"
+
 	"github.com/bmatcuk/doublestar/v2"
 )
 
@@ -195,13 +196,16 @@ func (page *Page) findDeps() {
 		return
 	}
 
-	deps := make(PageSlice, 0)
-	for _, other := range page.Site.Pages {
-		if other != page && page.Rule.IsDep(other) {
-			deps = append(deps, other)
+	// Do not re-calculate dependencies which have already been added.
+	if page.Deps == nil {
+		deps := make(PageSlice, 0)
+		for _, other := range page.Site.Pages {
+			if other != page && page.Rule.IsDep(other) {
+				deps = append(deps, other)
+			}
 		}
+		page.Deps = deps
 	}
-	page.Deps = deps
 }
 
 func (page *Page) Changed() bool {
@@ -284,15 +288,21 @@ func (page *Page) UrlMatches(regex string) bool {
 
 func (page *Page) Has(field, value string) bool {
 	switch field {
-	case "Title": return page.Title == value
-	case "Tag": return (page.Tags != nil &&
-		SliceStringIndexOf(page.Tags, value) != -1)
-	case "Url": return page.UrlMatches(value)
-	case "Source": matched, _ := doublestar.Match(value, page.Source)
+	case "Title":
+		return page.Title == value
+	case "Tag":
+		return (page.Tags != nil &&
+			SliceStringIndexOf(page.Tags, value) != -1)
+	case "Url":
+		return page.UrlMatches(value)
+	case "Source":
+		matched, _ := doublestar.Match(value, page.Source)
 		return matched
-	case "Hide": return ((page.Hide == true && value == "true") ||
-		(page.Hide == false && value == "false"))
-	default: return page.Other[field] == value
+	case "Hide":
+		return ((page.Hide == true && value == "true") ||
+			(page.Hide == false && value == "false"))
+	default:
+		return page.Other[field] == value
 	}
 }
 
