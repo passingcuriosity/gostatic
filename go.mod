@@ -1,4 +1,4 @@
-module github.com/piranha/gostatic
+module github.com/passingcuriosity/gostatic
 
 require (
 	github.com/bmatcuk/doublestar/v2 v2.0.4

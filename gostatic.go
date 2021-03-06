@@ -11,9 +11,9 @@ import (
 	"strings"
 
 	flags "github.com/jessevdk/go-flags"
-	hotreload "github.com/piranha/gostatic/hotreload"
-	gostatic "github.com/piranha/gostatic/lib"
-	"github.com/piranha/gostatic/processors"
+	hotreload "github.com/passingcuriosity/gostatic/hotreload"
+	gostatic "github.com/passingcuriosity/gostatic/lib"
+	"github.com/passingcuriosity/gostatic/processors"
 )
 
 const (

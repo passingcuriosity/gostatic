@@ -5,7 +5,7 @@ import (
 	"errors"
 	"fmt"
 
-	gostatic "github.com/piranha/gostatic/lib"
+	gostatic "github.com/passingcuriosity/gostatic/lib"
 )
 
 type TemplateProcessor struct {

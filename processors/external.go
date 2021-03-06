@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"errors"
 	"fmt"
-	gostatic "github.com/piranha/gostatic/lib"
+	gostatic "github.com/passingcuriosity/gostatic/lib"
 	"os/exec"
 	"path/filepath"
 	"strings"

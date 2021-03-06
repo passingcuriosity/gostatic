@@ -3,7 +3,7 @@ package processors
 import (
 	"regexp"
 
-	gostatic "github.com/piranha/gostatic/lib"
+	gostatic "github.com/passingcuriosity/gostatic/lib"
 )
 
 var shortSeparator = regexp.MustCompile(`(?m:^----?\r?\n)`)

@@ -2,7 +2,7 @@ package processors
 
 import (
 	"fmt"
-	gostatic "github.com/piranha/gostatic/lib"
+	gostatic "github.com/passingcuriosity/gostatic/lib"
 	"path/filepath"
 	"regexp"
 	"strings"
